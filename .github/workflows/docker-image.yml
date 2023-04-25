@@ -10,7 +10,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: flask-example
   IMAGE_TAG: latest
-  CR_PAT: ${{ secrets.CR_PAT }}
+  CR_PAT: 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
 
 jobs:
   push-to-container-registry:
