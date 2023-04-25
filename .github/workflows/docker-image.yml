@@ -10,7 +10,6 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: flask-example
   IMAGE_TAG: latest
-  CR_PAT: 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
 
 jobs:
   push-to-container-registry:
@@ -34,7 +33,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: yunusy78
-          password: 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
+          password: "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"
 
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v2
