@@ -1,6 +1,9 @@
 name: Create and publish a Docker image
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 env:
   REGISTRY: ghcr.io
@@ -15,14 +18,14 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Log in to the Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           registry: ${{ env.REGISTRY }}
-          username: yunusy78
-          password: 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
+          username: ${{ github.actor }}
+          password: ${{ secrets.PAT }}
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
