@@ -11,5 +11,5 @@ RUN pip install gunicorn
 RUN pip install itsdangerous==2.0.1
 COPY . .
 
-CMD ["gunicorn", "app:app", "-b", "0.0.0.0:6000"]
+CMD ["gunicorn", "app:app", "-b", "0.0.0.0:4000"]
 
