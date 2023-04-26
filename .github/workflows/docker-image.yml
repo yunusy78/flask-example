@@ -42,5 +42,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.PAT }}
           repository: ghcr.io/yunusy78/flask-example
+          push: true
           tag_with_ref: true
           context: .
