@@ -39,7 +39,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v1
         with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.PAT }}
+          repository: ghcr.io/yunusy78/flask-example
+          tag_with_ref: true
           context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
