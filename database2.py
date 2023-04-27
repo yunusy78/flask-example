@@ -16,7 +16,7 @@ def list_users():
     cnx = pymysql.connect(**config)
     cursor = cnx.cursor()
 
-    query = "SELECT user_id FROM users;"
+    query = "SELECT name FROM users;"
     cursor.execute(query)
     result = [x[0] for x in cursor.fetchall()]
 
