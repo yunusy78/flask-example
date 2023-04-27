@@ -16,7 +16,7 @@ def list_users():
     cnx = pymysql.connect(**config)
     cursor = cnx.cursor()
 
-    query = "SELECT user_id FROM users;"
+    query = "SELECT name FROM users;"
     cursor.execute(query)
     result = [x[0] for x in cursor.fetchall()]
 
@@ -29,7 +29,7 @@ def verify(user_id, name):
     cnx = pymysql.connect(**config)
     cursor = cnx.cursor()
 
-    query = "SELECT name FROM users WHERE user_id = %s;"
+    query = "SELECT user_id FROM users WHERE user_id = %s;"
     cursor.execute(query, (user_id,))
     result = cursor.fetchone()[0] == hashlib.sha256(name.encode()).hexdigest()
 
