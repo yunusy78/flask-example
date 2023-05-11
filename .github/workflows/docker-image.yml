@@ -11,7 +11,7 @@ env:
 
 jobs:
   build-and-publish:
-    runs-on: self-hosted LAPTOP-HO736VCU
+    runs-on: self-hosted
     permissions:
       contents: read
       packages: write
