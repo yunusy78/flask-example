@@ -2,7 +2,7 @@ name: MySQL Backup
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 1 * * *"
 
 jobs:
   backup:
