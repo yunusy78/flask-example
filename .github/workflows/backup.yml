@@ -1,0 +1,26 @@
+name: MySQL Backup
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run backup script
+      run: |
+        chmod +x backup.sh
+        ./backup.sh
+
+    - name: Commit changes
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add database_backup.sql
+        git commit -m "Add database backup"
+        git push
