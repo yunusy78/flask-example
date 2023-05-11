@@ -4,7 +4,7 @@ import datetime
 import hashlib
 
 
-# MySQL configurations
+# MySQL configurations       for
 config = {
     'user': 'root',
     'password': '4922',
