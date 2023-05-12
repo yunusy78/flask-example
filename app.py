@@ -9,7 +9,6 @@ from database2 import image_upload_record, list_images_for_user, match_user_id_w
 from werkzeug.utils import secure_filename
 
 
-
 app = Flask(__name__)
 app.config.from_object('config')
 
