@@ -7,7 +7,7 @@ import hashlib
 # MySQL configurations       for
 config = {
     'user': 'root',
-    'password': '4922',
+    'password': ${{secrets.MYSQL_PASSWORD}},
     'host': 'localhost',
     'database': 'sys'
 }
