@@ -1,15 +1,23 @@
-FROM python:3.10
+# Base image
+FROM python:3.9-slim
 
+# Set working directory
 WORKDIR /app
 
+# Copy the requirements file
 COPY requirements.txt .
 
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install Jinja2==2.11.3
-RUN pip install gunicorn
-RUN pip install itsdangerous==2.0.1
+# Copy the application code
 COPY . .
 
-CMD ["gunicorn", "app:app", "-b", "0.0.0.0:5000"]
+# Set environment variables
+ENV FLASK_APP=app.py
 
+# Expose the port on which the application will run
+EXPOSE 5000
+
+# Run the application
+CMD ["flask", "run", "--host=0.0.0.0"]
