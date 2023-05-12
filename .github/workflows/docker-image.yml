@@ -37,13 +37,13 @@ jobs:
       - name: Deploy to Docker host
         run: |
           try {
-              docker stop myapp -ErrorAction Stop
+              docker stop myapp
           }
           catch {
               # Hata oluşursa devam et
           }
           try {
-              docker rm myapp -ErrorAction Stop
+              docker rm myapp
           }
           catch {
               # Hata oluşursa devam et
