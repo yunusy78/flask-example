@@ -65,6 +65,5 @@ jobs:
           catch {
                  # Hata oluşursa devam et
                }
-        shell: pwsh
  
 
