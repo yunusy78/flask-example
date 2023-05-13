@@ -57,8 +57,8 @@ jobs:
           try {
                
              docker images --filter "reference=ghcr.io/yunusy78/yunusy78/flask-example" --format "{{.Repository}}:{{.Tag}}" | ForEach-Object {
-             if ($_ -notlike "*:latest") {
-             docker image rm -f $_.ToString().Trim()
+             if (-not $_.EndsWith(":latest")) {
+             docker image rm -f $_
             }
           }
           }
