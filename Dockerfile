@@ -10,12 +10,9 @@ COPY requirements.txt .
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-<<<<<<< HEAD
 # Install MySQL client
 RUN apt-get update && apt-get install -y default-mysql-client
 
-=======
->>>>>>> d650c36583bab2ca738b69fe914b2e79c6112341
 # Copy the application code
 COPY . .
 
