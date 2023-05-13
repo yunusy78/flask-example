@@ -55,7 +55,7 @@ jobs:
       - name: Remove old Docker image
         run: |
           try {
-              docker image rm ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:<none>
+              docker images --filter "reference=${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:*" --format "{{.Repository}}:{{.Tag}}" | findstr /V :latest | foreach { docker image rm $_ }
           }
           catch {
               # Hata oluşursa devam et
