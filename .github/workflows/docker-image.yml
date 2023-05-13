@@ -56,7 +56,7 @@ jobs:
         run: |
           try {
                
-              docker images --filter "reference=ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}:*" --format "{{.Repository}}:{{.Tag}}" | awk '!/:latest$/ {system("docker image rm -f " $0)}'
+              docker images --filter "reference=ghcr.io/yunusy78/yunusy78/flask-example" --format "{{.Repository}}:{{.Tag}}" | grep -v ':latest' | xargs -I {} docker image rm -f {}
           }
           catch {
                  # Hata oluşursa devam et
