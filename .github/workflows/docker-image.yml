@@ -29,8 +29,19 @@ jobs:
           password: ${{ secrets.PAT }}
           
       - name: Remove old Docker image
-        run: docker image rm ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest ; exit 0
-        
+        run: |
+          try {
+              docker stop ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
+          }
+          catch {
+              # Hata oluşursa devam et
+          }
+          try {
+              docker rm ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
+          }
+          catch {
+              # Hata oluşursa devam et
+          }
       - name: Build and publish Docker image
         uses: docker/build-push-action@v2
         with:
