@@ -55,12 +55,8 @@ jobs:
       - name: Remove old Docker images
         run: |
           try {
-               $images = docker images --filter "reference=${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:*" --format "{{.Repository}}:{{.Tag}}"
-               $images | ForEach-Object { 
-               if ($_ -notlike "*:latest") { 
-               docker image rm $_ -f 
-              }
-            }
+               
+              docker image rm fe5bfb3542cb59d51c958eaf3f5e1748ed22ac62a5a8e12a9ce24c7388c3e2a3
           }
           catch {
                  # Hata oluşursa devam et
