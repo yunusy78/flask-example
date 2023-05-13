@@ -56,7 +56,7 @@ jobs:
         run: |
           try {
                
-              docker image rm ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}:
+              docker image rm ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}
           }
           catch {
                  # Hata oluşursa devam et
