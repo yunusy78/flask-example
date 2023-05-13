@@ -31,12 +31,6 @@ jobs:
       - name: Remove old Docker image
         run: |
           try {
-              docker stop ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
-          }
-          catch {
-              # Hata oluşursa devam et
-          }
-          try {
               docker rm ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
           }
           catch {
