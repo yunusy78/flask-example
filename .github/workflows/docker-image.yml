@@ -19,7 +19,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+      - name: Remove old Docker image
+        run: docker image rm ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest || true
+        
       - name: Login to GitHub Packages
         uses: docker/login-action@v1
         with:
