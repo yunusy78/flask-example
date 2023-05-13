@@ -56,7 +56,11 @@ jobs:
         run: |
           try {
                
-              docker images --filter "reference=ghcr.io/yunusy78/yunusy78/flask-example" --format "{{.Repository}}:{{.Tag}}" | grep -v ':latest' | xargs -I {} docker image rm -f {}
+             docker images --filter "reference=ghcr.io/yunusy78/yunusy78/flask-example" --format "{{.Repository}}:{{.Tag}}" | ForEach-Object {
+             if ($_ -notlike "*:latest") {
+             docker image rm -f $_
+            }
+          }
           }
           catch {
                  # Hata oluşursa devam et
