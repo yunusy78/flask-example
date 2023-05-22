@@ -52,18 +52,5 @@ jobs:
           }
           docker run -d -p 5000:5000 --name myapp ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
           
-      - name: Remove old Docker images
-        run: |
-          try {
-               
-             docker images --filter "reference=ghcr.io/yunusy78/yunusy78/flask-example" --format "{{.Repository}}:{{.Tag}}" | ForEach-Object {
-             if (-not $_.EndsWith(":latest")) {
-             docker image rm -f $_
-            }
-          }
-          }
-          catch {
-                 # Hata oluşursa devam et
-               }
  
 
