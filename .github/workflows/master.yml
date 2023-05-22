@@ -35,14 +35,12 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:new
+          tags: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
 
       - name: Deploy to Docker host
         run: |
           docker stop myapp || true
           docker rm myapp || true
-          docker run -d -p 5000:5000 --name myapp ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
+          docker run -d -p 5000:5000 --name myapp ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:
 
-      - name: Remove old Docker images
-        run: |
-          docker images --filter "reference=${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}" --format "{{.Repository}}:{{.Tag}}" | grep -v latest | xargs -I {} docker image rm -f {}
+    
