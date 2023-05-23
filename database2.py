@@ -11,8 +11,8 @@ config1 = {
 
 config2 = {
     'host': 'us-cdbr-east-06.cleardb.net',
-    'user': 'username',
-    'password': 'password',
+    'user': 'b5f74bf9c03a63',
+    'password': '3a96461f',
     'database': 'heroku_66e39329c433106',
 }
 
