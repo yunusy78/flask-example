@@ -16,29 +16,14 @@ config2 = {
     'database': 'heroku_66e39329c433106',
 }
 
-def establish_connection(config):
-    try:
-        connection = pymysql.connect(**config)
-        print("Bağlantı başarıyla kuruldu!")
-        return connection
-    except pymysql.err.OperationalError:
-        print("Bağlantı hatası! Alternatif yapılandırmayı deneyin.")
-        return None
-
-# Bağlantıyı ilk yapılandırmayla dene
-connection = establish_connection(config1)
-
-# Eğer bağlantı başarısız olduysa, alternatif yapılandırmayı dene
-if connection is None:
-    connection = establish_connection(config2)
-
-# Bağlantı varsa devam edin
-if connection:
 
 def list_users():
-    cnx = pymysql.connect(**config)
+    
+    try:
+        cnx = pymysql.connect(**config1)
+    except pymysql.err.OperationalError:
+        cnx = pymysql.connect(**config2)
     cursor = cnx.cursor()
-
     query = "SELECT user_id FROM users;"
     cursor.execute(query)
     result = [x[0] for x in cursor.fetchall()]
