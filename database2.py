@@ -5,7 +5,7 @@ import datetime
 config = {
     'user': 'root',
     'password': ${{secrets.MYSQL_PASSWORD}},
-    'host': 'localhost',
+    'host': '10.225.148.138',
     'database': 'teamdevopsuia'
 }
 
