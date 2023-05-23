@@ -2,12 +2,38 @@ import pymysql
 import hashlib
 import datetime
 
-config = {
-    'user': 'root',
-    'password':'1234',
+config1 = {
     'host': '10.225.148.138',
-    'database': 'teamdevopsuia'
+    'user': 'root',
+    'password': '1234',
+    'database': 'teamdevopsuia',
 }
+
+config2 = {
+    'host': 'us-cdbr-east-06.cleardb.net',
+    'user': 'username',
+    'password': 'password',
+    'database': 'heroku_66e39329c433106',
+}
+
+def establish_connection(config):
+    try:
+        connection = pymysql.connect(**config)
+        print("Bağlantı başarıyla kuruldu!")
+        return connection
+    except pymysql.err.OperationalError:
+        print("Bağlantı hatası! Alternatif yapılandırmayı deneyin.")
+        return None
+
+# Bağlantıyı ilk yapılandırmayla dene
+connection = establish_connection(config1)
+
+# Eğer bağlantı başarısız olduysa, alternatif yapılandırmayı dene
+if connection is None:
+    connection = establish_connection(config2)
+
+# Bağlantı varsa devam edin
+if connection:
 
 def list_users():
     cnx = pymysql.connect(**config)
