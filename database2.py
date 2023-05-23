@@ -18,10 +18,6 @@ config2 = {
 
 
 def list_users():
-    
-    try:
-        cnx = pymysql.connect(**config1)
-    except pymysql.err.OperationalError:
         cnx = pymysql.connect(**config2)
     cursor = cnx.cursor()
     query = "SELECT user_id FROM users;"
