@@ -2,19 +2,19 @@ import pymysql
 import hashlib
 import datetime
 
+#config = {
+#    'host': '10.225.148.138',
+ #   'user': 'root',
+  #  'password': '1234',
+   # 'database': 'teamdevopsuia',
+#}
+ 
 config = {
-    'host': '10.225.148.138',
-    'user': 'root',
-    'password': '1234',
-    'database': 'teamdevopsuia',
-}
-
-config2 = {
-    'host': 'us-cdbr-east-06.cleardb.net',
-    'user': 'b5f74bf9c03a63',
-    'password': '3a96461f',
-    'database': 'heroku_66e39329c433106',
-}
+     'host': 'us-cdbr-east-06.cleardb.net',
+     'user': 'b5f74bf9c03a63',
+     'password': '3a96461f',
+     'database': 'heroku_66e39329c433106',
+ }
 
 def list_users():
     cnx = pymysql.connect(**config2)
