@@ -7,7 +7,7 @@ username = "admin"
 password = "admin"
 
 # initialize the Chrome driver
-driver = webdriver.Chrome(executable_path="C:/Users/yunus/anaconda3/Scripts/chromedriver")
+driver = webdriver.Chrome(executable_path="https://github.com/yunusy78/flask-example/tree/master/chromedriver")
 # initialize the Chrome driver
 driver = webdriver.Chrome("chromedriver")
 # head to github login page
