@@ -5,6 +5,7 @@ WORKDIR /app
 
 # Copy the requirements file
 COPY requirements.txt .
+RUN pip install selenium
 
 # Install dependencies
 RUN pip install -r requirements.txt
