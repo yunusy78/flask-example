@@ -17,7 +17,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install dependencies
-RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt
+RUN pip install -r requirements.txt
 # Install MySQL client
 RUN apt-get update && apt-get install -y default-mysql-client
 
