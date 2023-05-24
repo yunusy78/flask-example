@@ -2,14 +2,12 @@ from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from os import environ
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-
 # Github credentials
 username = "admin"
 password = "admin"
-driver = webdriver.Chrome()
+
+# initialize the Chrome driver
+driver = webdriver.Chrome(executable_path="C:/Users/yunus/anaconda3/Scripts/chromedriver")
 # head to github login page
 driver.get("https://teamdevops.herokuapp.com/login")
 # find username/email field and send the username itself to the input field
