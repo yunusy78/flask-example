@@ -10,7 +10,7 @@ password = "admin"
 
 # Firefox options
 options = Options()
-options.headless = True
+options.add_argument('-headless')  # Başsız çalışma modu için argüman ekle
 
 # initialize the Firefox driver
 driver = webdriver.Firefox(options=options)
