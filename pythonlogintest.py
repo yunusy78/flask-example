@@ -8,8 +8,6 @@ password = "admin"
 
 # initialize the Chrome driver
 driver = webdriver.Chrome(executable_path="https://github.com/yunusy78/flask-example/tree/master/chromedriver")
-# initialize the Chrome driver
-driver = webdriver.Chrome("chromedriver")
 # head to github login page
 driver.get("https://teamdevops.herokuapp.com/login")
 # find username/email field and send the username itself to the input field
