@@ -1,10 +1,16 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 
+options = Options()
+options.add_argument("--headless")  # Arka planda çalıştırmak için
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+
 # Selenium WebDriver'ı başlat
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(options=options)
 
 # Uygulama URL'sini tanımla
 url = 'https://teamdevops.herokuapp.com/login'
