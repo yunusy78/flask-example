@@ -11,6 +11,7 @@ from pymysql import connect, err, cursors
    # 'database': 'teamdevopsuia',
 #}
 
+
 config = {
      'host': 'us-cdbr-east-06.cleardb.net',
      'user': 'b5f74bf9c03a63',
@@ -21,7 +22,6 @@ config = {
 def list_users():
     cnx = pymysql.connect(**config)
     cursor = cnx.cursor()
-
     query = "SELECT user_id FROM users;"
     cursor.execute(query)
     result = [x[0] for x in cursor.fetchall()]
