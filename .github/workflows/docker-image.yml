@@ -30,6 +30,7 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
 
   test:
+    needs: build-and-publish
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
