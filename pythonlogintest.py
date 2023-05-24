@@ -9,7 +9,11 @@ def test_login():
     password = "admin"
 
     # initialize the Chrome driver with Service object
-    driver = webdriver.Chrome()
+   options = webdriver.ChromeOptions()
+   options.binary_location = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+   chrome_driver_binary = "C:/Users/yunus/anaconda3/Scripts/chromedriver"
+   driver = webdriver.Chrome(chrome_driver_binary, options=options)
+
     # head to github login page
     driver.get("https://teamdevops.herokuapp.com/login")
     # find username/email field and send the username itself to the input field
