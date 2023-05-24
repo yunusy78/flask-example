@@ -6,8 +6,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 username = "admin"
 password = "admin"
 
-# initialize the Chrome driver
-driver = webdriver.Chrome(executable_path="C:/Users/yunus/anaconda3/Scripts/chromedriver")
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("--headless")  # Arka planda çalıştırma için bu seçeneği ekleyebilirsiniz
+
+service = Service("C:/Users/yunus/anaconda3/Scripts/chromedriver")
+driver = webdriver.Chrome(service=service, options=chrome_options)
 # head to github login page
 driver.get("https://teamdevops.herokuapp.com/login")
 # find username/email field and send the username itself to the input field
