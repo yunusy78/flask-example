@@ -35,10 +35,10 @@ jobs:
       contents: read
     needs: build-and-publish
     steps:
-      - name: Install dependencies
+      - name: Tree
         run: |
-         python3 -m pip install --upgrade pip
-         pip install selenium
+         cd /yunus/anaconda3/Scripts/chromedriver
+         tree
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install dependencies
