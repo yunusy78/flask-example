@@ -1,5 +1,5 @@
 # Base image
-FROM docker.io/library/python:3.9-slim@sha256:1fc44d17b4ca49a8715af80786f21fa5ed8cfd257a1e14e24f4a79b4ec329388
+FROM amopromo/python3.9-nginx
 # Set working directory
 WORKDIR /app
 
