@@ -1,13 +1,15 @@
 # Base image
-FROM amopromo/python3.9-nginx
+FROM python:3.9
+
 # Set working directory
 WORKDIR /app
 
 # Copy the requirements file
 COPY requirements.txt .
-
+RUN pip install --upgrade pip
 # Install dependencies
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
 # Install MySQL client
 RUN apt-get update && apt-get install -y default-mysql-client
 

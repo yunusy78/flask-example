@@ -4,9 +4,6 @@ import hashlib
 import pymysql
 from flask import Flask, session, url_for, redirect, render_template, request, abort, flash
 # brukes Mysql
-from database2 import list_users, verify, delete_user_from_db, add_user
-from database2 import read_note_from_db, write_note_into_db, delete_note_from_db, match_user_id_with_note_id
-from database2 import image_upload_record, list_images_for_user, match_user_id_with_image_uid, delete_image_from_db
 from werkzeug.utils import secure_filename
 
 from database2 import list_users, verify, delete_user_from_db, add_user, read_note_from_db, write_note_into_db, delete_note_from_db, match_user_id_with_note_id, image_upload_record, list_images_for_user, match_user_id_with_image_uid, delete_image_from_db
