@@ -1,5 +1,5 @@
 # Base image
-FROM amopromo/python3.9-nginx
+FROM python3.9-nginx
 
 # Set working directory
 WORKDIR /app
