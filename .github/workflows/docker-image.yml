@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Tree
         run: |
-         cd /home/yunusy/anaconda3/Scripts/chromedriver
+         cd C:/Users/yunus/anaconda3/Scripts/chromedriver
          tree
       - name: Checkout code
         uses: actions/checkout@v2
