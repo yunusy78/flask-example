@@ -6,7 +6,7 @@ mysql-connector>=2.2.9
 Flask_SQLAlchemy>=2.5.1
 pymysql>=1.0.2
 gunicorn
-chromedriver-binary==113.0.5672.127
+chromedriver-binary
 selenium
 webdriver_manager
 pytest
