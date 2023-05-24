@@ -35,10 +35,6 @@ jobs:
       contents: read
     needs: build-and-publish
     steps:
-      - name: Tree
-        run: |
-         cd /Users/yunus/anaconda3/Scripts/chromedriver
-         tree
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install dependencies
