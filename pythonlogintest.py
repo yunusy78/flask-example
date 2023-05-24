@@ -11,7 +11,7 @@ def test_login():
     # initialize the Chrome driver with Service object
     options = webdriver.ChromeOptions()
     options.binary_location = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
-    chrome_driver_binary = "C:/Users/yunus/anaconda3/Scripts/chromedriver"
+    chrome_driver_binary = "/usr/local/bin/chromedriver"
     driver = webdriver.Chrome(chrome_driver_binary, options=options)
 
     # head to github login page
