@@ -6,6 +6,6 @@ mysql-connector>=2.2.9
 Flask_SQLAlchemy>=2.5.1
 pymysql>=1.0.2
 gunicorn
-chromedriver-binary>=111.0.5563.41.0
-selenium>=4.8.2
+chromedriver-binary
+selenium
 
