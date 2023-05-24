@@ -8,5 +8,5 @@ pymysql>=1.0.2
 gunicorn
 chromedriver-binary==111.0.5563.41.0
 selenium>=4.8.2
-
+pytest==7.2.2
 
