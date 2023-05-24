@@ -1,22 +1,26 @@
 from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-
 # Github credentials
 username = "admin"
 password = "admin"
 
 # initialize the Chrome driver
+# initialize the Chrome driver
 driver = webdriver.Chrome("chromedriver")
-
 # head to github login page
 driver.get("https://teamdevops.herokuapp.com/login")
 # find username/email field and send the username itself to the input field
 driver.find_element("name", "id").send_keys(username)
 # find password input field and insert password as well
 driver.find_element("name", "pw").send_keys(password)
-# click login button
-# Giriş düğmesini bul ve tıkla
-submit_button = driver.find_element("css selector", "input[type='submit']")
+
+# Bekleme süresini artırın (örneğin 10 saniye)
+wait = WebDriverWait(driver, 10)
+
+# Öğe yüklenene kadar bekleyin
+submit_button = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "button[type='submit'].btn.btn-success")))
 submit_button.click()
 WebDriverWait(driver=driver, timeout=10).until(
     lambda x: x.execute_script("return document.readyState === 'complete'")
