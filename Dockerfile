@@ -1,5 +1,5 @@
 # Base image
-FROM python3.9-nginx
+FROM python:3.9
 
 # Set working directory
 WORKDIR /app
