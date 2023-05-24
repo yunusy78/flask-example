@@ -17,7 +17,7 @@ config = {
  }
 
 def list_users():
-    cnx = pymysql.connect(**config2)
+    cnx = pymysql.connect(**config)
     cursor = cnx.cursor()
     query = "SELECT user_id FROM users;"
     cursor.execute(query)
