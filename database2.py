@@ -9,8 +9,15 @@ config = {
     'database': 'teamdevopsuia',
 }
 
+config2 = {
+    'host': 'us-cdbr-east-06.cleardb.net',
+    'user': 'b5f74bf9c03a63',
+    'password': '3a96461f',
+    'database': 'heroku_66e39329c433106',
+}
+
 def list_users():
-    cnx = pymysql.connect(**config)
+    cnx = pymysql.connect(**config2)
     cursor = cnx.cursor()
     query = "SELECT user_id FROM users;"
     cursor.execute(query)
