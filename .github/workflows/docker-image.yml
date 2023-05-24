@@ -29,6 +29,7 @@ jobs:
           context: .
           push: true
           tags: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
+
       - name: Deploy to Docker host
         run: |
           docker stop myapp || true
