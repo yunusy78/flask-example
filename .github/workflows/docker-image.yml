@@ -28,12 +28,7 @@ jobs:
           context: .
           push: true
           tags: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
-   
-      - name: Deploy to Docker host
-        run: |
-          docker stop myapp || true
-          docker rm myapp || true
-          docker run -d -p 5000:5000 --name myapp ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
+    
           
   test:
     runs-on: self-hosted
@@ -46,4 +41,17 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run Selenium tests
-        run: python3 test.py
+        run: python3 pythonlogintest.py
+  deploy:
+    needs: test
+    runs-on: self-hosted
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Deploy to Docker host
+        run: |
+          docker stop myapp || true
+          docker rm myapp || true
+          docker run -d -p 5000:5000 --name myapp ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
