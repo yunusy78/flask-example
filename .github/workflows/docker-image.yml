@@ -22,17 +22,44 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.PAT }}
-          
       - name: Build and publish Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
           tags: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
+<<<<<<< HEAD
 
+=======
+    
+          
+  test:
+    runs-on: self-hosted
+    permissions:
+      contents: read
+    needs: build-and-publish
+    steps:
+      - name: Install dependencies
+        run: |
+         python3 -m pip install --upgrade pip
+         pip install selenium
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Selenium tests
+        run: python3 pythonlogintest.py
+  deploy:
+    needs: test
+    runs-on: self-hosted
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+>>>>>>> 590b77b8761418f2a5e00e4ef100b8d1512bbbbe
       - name: Deploy to Docker host
         run: |
           docker stop myapp || true
           docker rm myapp || true
           docker run -d -p 5000:5000 --name myapp ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
-          
