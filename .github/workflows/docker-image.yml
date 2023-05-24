@@ -29,6 +29,10 @@ jobs:
           context: .
           push: true
           tags: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
+      - name: Run Selenium tests
+        run: |
+          pip install -r requirements.txt
+          docker run -e SE_EVENT_BUS_HOST=selenium-hub -e SE_EVENT_BUS_PUBLISH_PORT=4442 -e SE_EVENT_BUS_SUBSCRIBE_PORT=4443 --network host --rm -v ${PWD}:/usr/src/app -w /usr/src/app python:3 python pythonlogintest.py   
       - name: Deploy to Docker host
         run: |
           docker stop myapp || true
