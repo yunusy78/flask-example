@@ -28,11 +28,6 @@ jobs:
           context: .
           push: true
           tags: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest
-<<<<<<< HEAD
-
-=======
-    
-          
   test:
     runs-on: self-hosted
     permissions:
@@ -57,7 +52,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
->>>>>>> 590b77b8761418f2a5e00e4ef100b8d1512bbbbe
       - name: Deploy to Docker host
         run: |
           docker stop myapp || true

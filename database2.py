@@ -4,12 +4,12 @@ import datetime
 
 from pymysql import connect, err, cursors
 
-#config = {
+#    config = {
 #    'host': '10.225.148.138',
- #   'user': 'root',
-  #  'password': '1234',
-   # 'database': 'teamdevopsuia',
-#}
+#    'user': 'root',
+#    'password': '1234',
+#    'database': 'teamdevopsuia',
+#    }
 
 
 config = {
