@@ -4,9 +4,6 @@ FROM amopromo/python3.9-nginx
 # Set working directory
 WORKDIR /app
 
-# Install build tools
-RUN apt-get update && apt-get install -y gcc
-
 # Copy the requirements file
 COPY requirements.txt .
 
