@@ -10,7 +10,7 @@ password = "admin"
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("--headless")  # Arka planda çalıştırma için bu seçeneği ekleyebilirsiniz
 
-service = Service("C:/Users/yunus/anaconda3/Scripts/chromedriver")
+service = Service("https://github.com/yunusy78/flask-example/tree/master/chromedriver/chromedriver")
 driver = webdriver.Chrome(service=service, options=chrome_options)
 # head to github login page
 driver.get("https://teamdevops.herokuapp.com/login")
