@@ -9,11 +9,7 @@ from selenium.webdriver.chrome.service import Service
 # Github credentials
 username = "admin"
 password = "admin"
-chrome_service = Service(environ['CHROMEWEBDRIVER'])
-chrome_options = Options()
-for option in ['--headless','--disable-gpu','--window-size=1920,1200','--ignore-certificate-errors','--disable-extensions','--no-sandbox','--disable-dev-shm-usage']:
-    chrome_options.add_argument(option)
-driver = webdriver.Chrome(service = chrome_service,options = chrome_options)
+driver = webdriver.Chrome()
 # head to github login page
 driver.get("https://teamdevops.herokuapp.com/login")
 # find username/email field and send the username itself to the input field
