@@ -10,3 +10,4 @@ chromedriver-binary==113.0.5672.127
 selenium
 webdriver_manager
 pytest
+urllib3
