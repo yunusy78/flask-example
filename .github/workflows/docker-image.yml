@@ -35,10 +35,19 @@ jobs:
       contents: read
     needs: build-and-publish
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Install Chrome WebDriver
+        run: |
+          CHROME_DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          curl -sS -o /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
+          sudo unzip -o /tmp/chromedriver_linux64.zip -d /usr/local/bin
+          sudo chmod +x /usr/local/bin/chromedriver
+          sudo ln -sf /usr/local/bin/chromedriver /usr/bin/chromedriver
       - name: Run Selenium tests
-        run: pytest pythonlogintest.py
+        run: python pythonlogintest.py
 
   deploy:
     needs: test
