@@ -38,7 +38,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run Selenium tests
-        run: python3 pythonlogintest.py
+        run: pytest pythonlogintest.py
 
   deploy:
     needs: test
