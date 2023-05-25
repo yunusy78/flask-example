@@ -5,8 +5,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 def test_login():
     # Github credentials
-    username = "admin1"
-    password = "admin1"
+    username = "admin"
+    password = "admin"
 
     try:
         # initialize the Chrome driver with Service object
