@@ -4,12 +4,11 @@ from flask_migrate import Migrate
 from datetime import datetime
 
 app1 = Flask(__name__)
-app1.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:4922@localhost/teamdevopsuia'
+app1.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://b5f74bf9c03a63:3a96461f@us-cdbr-east-06.cleardb.net/heroku_66e39329c433106'
 app1.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app1)
 migrate = Migrate(app1, db)
-
 # User model
 class users(db.Model):
     user_id = db.Column(db.String(255), primary_key=True)

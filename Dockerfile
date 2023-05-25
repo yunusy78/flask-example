@@ -1,9 +1,7 @@
 # Base image
 FROM python:3.11
-
 # Set working directory
 WORKDIR /app
-
 # Copy the requirements file
 COPY requirements.txt .
 

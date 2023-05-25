@@ -9,4 +9,5 @@ gunicorn
 chromedriver-binary
 selenium
 webdriver_manager
-
+pytest
+urllib3
