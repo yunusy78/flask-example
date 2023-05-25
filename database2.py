@@ -11,7 +11,6 @@ from pymysql import connect, err, cursors
 #    'database': 'teamdevopsuia',
 #    }
 
-
 config = {
      'host': 'us-cdbr-east-06.cleardb.net',
      'user': 'b5f74bf9c03a63',
